@@ -1,0 +1,16 @@
+{
+	"name": "CDS Hooks",
+	"namespace": "Vanderbilt\\CDSHooks",
+	"framework-version": 3,
+	"description": "Handles CDS Hook requests (from EPIC for example).",
+	"authors": [
+		{
+			"name": "Mark McEver",
+			"email": "datacore@vumc.org",
+			"institution": "Vanderbilt University Medical Center"
+		}
+	],
+	"no-auth-pages": [
+		"hook"
+	]
+}
