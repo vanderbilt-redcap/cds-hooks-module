@@ -11,6 +11,6 @@
 		}
 	],
 	"no-auth-pages": [
-		"hook"
+		"services"
 	]
 }
