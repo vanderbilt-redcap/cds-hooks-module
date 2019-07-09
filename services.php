@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: http://sandbox.cds-hooks.org");
+header("Access-Control-Allow-Headers: Authorization, Content-Type");
 
 $cdsUrl = $_GET['cds-url'];
 $parts = explode('/', $_GET['cds-url']);
