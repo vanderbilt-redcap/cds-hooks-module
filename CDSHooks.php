@@ -10,8 +10,8 @@ class CDSHooks extends \ExternalModules\AbstractExternalModule{
 					'name' => 'REDCap CDS Service Example',
 					'description' => 'A simple REDCap CDS Service example.',
 					'id' => 'patient-view',
-					"prefetch" => [
-						'patientToGreet' => 'Patient/{{Patient.id}}'
+					'prefetch' => [
+						"patient" => "Patient/{{context.patientId}}"
 					]
 				]
 			]
@@ -19,12 +19,18 @@ class CDSHooks extends \ExternalModules\AbstractExternalModule{
 	}
 
 	function patientView(){
+		$data = json_decode(file_get_contents('php://input'), true);
+		$prefetch = $data['prefetch'];
+		$patient = $prefetch['patient'];
+		$name = $patient['name'][0];
+		$displayName = implode(' ' , $name['given']) . ' ' . implode(' ',  $name['family']);
+
 		$this->sendJSONResponse([
 			"cards" => [
 				[
 					'summary' => 'REDCap Example Card',
 					'indicator' => 'success',
-					'detail' => 'This is an example CDS Hooks response from REDCap.',
+					'detail' => "This is an example CDS Hooks response from REDCap.  The prefetched patient's name is $displayName.",
 					'source' => [
 						'label' => 'REDCap',
 						'url' => APP_PATH_WEBROOT_FULL
