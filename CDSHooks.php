@@ -37,8 +37,8 @@ class CDSHooks extends \ExternalModules\AbstractExternalModule{
 					],
 					'links' => [
 						[
-							'label' => 'REDCap Example Link',
-							'url' => APP_PATH_WEBROOT_FULL,
+							'label' => 'REDCap Example Survey Link',
+							'url' => 'https://redcap.vanderbilt.edu/surveys/?s=X83KEHJ7EA',
 							'type' => 'absolute'
 						]
 					]
